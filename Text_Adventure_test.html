@@ -1,0 +1,163 @@
+import sys
+
+enter_text = '''
+Hello! Welcome to Tina the Umbrella. This story follows the main character, Tim,
+who is searching for his lost umbrella, Tina, in the Emerald City of Seattle.
+'''
+
+FirstChoice = '''
+Would you like to search for Tina in the Key Arena or in Pikes Place? Type 'key'
+for Key Arena or 'pike' for Pikes Place.
+ '''
+
+key_arena = '''
+You show up at Key Arena only to find that there is an ice skating show going on, so you decide
+to buy a ticket and spend some time admiring the culture of Seattle.
+'''
+
+pikes_place = '''
+You decide to first search at Pikes Place and you ask around at the different vendors
+if they have seen Tina.
+'''
+
+game_over = False
+key = False
+pike = False
+
+print(enter_text)
+
+done = False
+while done == False:
+    first_choice_input = input(FirstChoice)
+    if first_choice_input == "key":
+        print(key_arena)
+        key = True
+        done = True
+    elif first_choice_input == "pike":
+        print(pikes_place)
+        done = True
+        pike = True
+    else:
+        print('''
+That wasn't one of the options. Please type either 'key' or 'pike'.
+        ''')
+
+
+Key_Second_Choice = '''
+After you get your ticket, you go to find a seat. You find yourself feeling hungry but the show
+is about to begin. Do you stay in your seat or do you go out to the lobby to buy some food? Type 'stay' to stay in your
+seat and watch the show in its entirety, or type 'food' to go satisfy your hunger, but miss a bit of the show.
+'''
+
+ice_skating = '''
+You sit down to see the show at Key Arena and a group of armed mercenaries
+burst onto the stage and began mowing down the crowd. You are one of the unfortunate ones
+that recieves a mortal wound, but not enough to instantly kill you. You will spend your last
+moments in agony wondering where this search took you wrong.
+                GAME OVER
+'''
+
+popcorn = '''
+You go back out to the lobby to buy a bag of popcorn. You hear gunshots from
+inside the arena, and decide to head back out to continue your search, narrowly avoiding your
+demise.
+'''
+
+if key == True:
+
+    done = False
+    while done == False:
+        second_choice_input = input(Key_Second_Choice)
+        if second_choice_input == "food":
+            print(popcorn)
+            done = True
+        elif second_choice_input == "stay":
+            print(ice_skating)
+            done = True
+            game_over = True
+        else:
+            print('''
+That wasn't one of the options. Please type either 'food' or 'stay'.
+        ''')
+
+Pikes_Second_Choice = '''
+You head to Pikes Place Market to ask about Tina. You find many interesting shops there, but none of the vendors
+know about your precious Tina. Before you leave to continue your search, you decide to get a souvenir from the market.
+Do you get a fish from the fish market or donuts from the donut shop? Type 'fish' to choose fish or 'donuts' to choose
+the donuts.
+'''
+
+fish = '''
+The vendor throws the fish at you after your purchase, but since the fish is frozen and you are very clumsy,
+it hits you in the face causing you to stumble and fall wrong on your neck which lands you in the hospital for
+6 months. You never found your precious Tina.
+                    GAME OVER
+                    '''
+
+donuts = '''
+You decide to purchase donuts as your souvenir. But it turns out they use a secret ingredient which doesn't sit well
+with you, forcing you to go to the hospital to get your stomach pumped. You vowed never to return to Seattle again
+after that traumatic experience even if it meant losing Tina.
+                    GAME OVER
+'''
+
+if pike == True:
+
+    done = False
+    while done == False:
+        second_choice_input = input(Pikes_Second_Choice)
+        if second_choice_input == "fish":
+            print(fish)
+            done = True
+            game_over = True
+        elif second_choice_input == "donuts":
+            print(donuts)
+            done = True
+            game_over = True
+        else:
+            print('''
+That wasn't one of the options. Please type either 'food' or 'stay'.
+        ''')
+
+Key_Third_Choice = '''
+You find yourself wandering around Seattle searching for Tina with a bag of popcorn that you don't
+want. You pass a park with a bunch of birds and a homeless man. Do you give the popcorn to the birds or to the homeless
+man? Type 'bird' to give the popcorn to the birds, and type 'man' to give it to the homeless man.
+'''
+
+birds = '''
+The birds are thankful for your gift. You know this because they start talking to you.
+The birds convene into a swarm to search for your umbrella, Tina, since they can cover more ground than you.
+'''
+
+homeless_man = '''
+The homeless man is initially grateful for you gift. But then he has an allergic reaction and
+unexpectedly goes into cardiac arrest. There was a police officier on the scene witnessing the entire
+situation and you were placed under arrest for the accidental murder of the homeless man who was
+secretly the governor of Washington.
+                        GAME OVER
+                        '''
+if game_over == False:
+
+    done = False
+    while done == False:
+        third_choice_input = input(Key_Third_Choice)
+        if third_choice_input == "bird":
+            print(birds)
+            done = True
+        elif third_choice_input == 'man':
+            print(homeless_man)
+            done = True
+            game_over = True
+        else:
+            print('''
+That wasn't one of the options. Please type either 'bird' or 'man'.
+        ''')
+
+game_completed_text = '''
+The birds and their swarm managed to find your precious Tina, reuniting you both at last. You thank
+the birds before heading out into Seattle traffic wondering what your life had turned into.  '''
+
+if game_over == False:
+    print(game_completed_text)
+    print("Congratulations! You completed Tina the Umbrella. Play again soon!")
